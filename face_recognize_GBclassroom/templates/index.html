@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {{ dropzone.load_css() }}
+    {{ dropzone.style('border: 2px dashed #0087F7; margin: 10px 0 10px; min-height: 400px;') }}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+{{infoTable}}<br>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Update member</button>
+  <div id="demo" class="collapse">
+      {{ dropzone.create(action='upload') }}
+    <form action="/addmember" enctype="multipart/form-data" method="post">
+        <label for="nickname">Nickname</label><br>
+        <input type="text" id="nickname" name="nickname"/><t>
+        <label for="name">Tên</label>
+        <input type="text" id="name" name="name"/><br>
+        <label for="age">Tuổi</label>
+        <input type="text" id="age" name="age"/><br>
+        <input type="checkbox" style="left:5px" name="gender" value="male"><b>Nam</b>
+        <input type="checkbox" style="left:5px" name="gender" value="female"><b>Nu</b><br>
+        <label for="job">Job</label>
+        <input type="text" id="job" name="job"/><br>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+  </div>
+{{comment}}
+
+<!--<form id="delete" action="/" method ="post" enctype=multipart/form-data>-->
+    <!--<input id="index" type="text" name="number" placeholder="Enter index delete" autocomplete="off" style="width:200px" >-->
+    <!--<input id="ok" type="submit" name="submit">-->
+<!--</form>-->
+    {{ dropzone.load_js() }}
+    {{ dropzone.config() }}
+</body>
+</html>
